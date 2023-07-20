@@ -20,7 +20,7 @@ c)use inside the class of that model
  _4.Make Related guard to your model in config/auth.php _
  ** 'guards' => [
         'web' => [
-            'driver' => 'session',
+  'driver' => 'session',
             'provider' => 'users',
         ],
         'admin' => [
@@ -91,6 +91,7 @@ c)use inside the class of that model
     _7.In api.php add the necessary namespaces_
     a)use your Controller
     Add the middleware in the route with user aabilities
+    **Abilities:CustomGuard  which we had delcared in the guard of config/auth.php**
     Route::middleware(['auth:sanctum', 'abilities:admin'])->get('admin/dtls', [AuthController::class, 'AdminDtls']);
     Route::middleware(['auth:sanctum', 'abilities:emp'])->get('emp/dtls', [AuthController::class, 'EmpDtls']);
     Route::middleware('auth:sanctum')->get('/logout', [AuthController::class, 'logout']); 
